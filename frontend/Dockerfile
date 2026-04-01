@@ -2,8 +2,8 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci
+COPY package.json .
+RUN npm install --registry https://registry.npmjs.org
 
 COPY . .
 RUN npm run build

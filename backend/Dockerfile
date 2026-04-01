@@ -23,6 +23,8 @@ RUN pip install --no-cache /wheels/*
 
 COPY . .
 
+RUN chmod +x entrypoint.sh
+
 EXPOSE 5000
 
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+CMD ["/app/entrypoint.sh"]
