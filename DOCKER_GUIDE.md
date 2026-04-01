@@ -1,5 +1,15 @@
 # Docker 开发环境快速指南
 
+## 快速开始
+
+一行命令启动所有服务：
+
+```bash
+docker-compose up -d
+```
+
+然后在浏览器访问：http://localhost
+
 ## 前置要求
 
 确保已安装以下工具：

@@ -3,11 +3,12 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# 复制 package 文件
-COPY package*.json ./
+# 复制 package.json（不复制 package-lock.json）
+COPY package.json ./
 
-# 安装依赖
-RUN npm install
+# 安装依赖（使用官方 npm 源，不使用 lockfile）
+RUN npm config set registry https://registry.npmjs.org/ && \
+    npm install --legacy-peer-deps --no-package-lock
 
 # 复制源代码
 COPY . .
